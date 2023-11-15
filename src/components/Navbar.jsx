@@ -10,6 +10,7 @@ function Navbar() {
   return (
     <nav className="bg-base-200">
       <div className="navbar align-element">
+        
         <div className="navbar-start">
           <Link
             to="/"
