@@ -16,18 +16,20 @@ function Checkout() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleClick = () => {
-    const date = new Date().toLocaleString();
-    console.log(date);
-    dispatch(
-      setCheckout({
-        name,
-        address,
-        cost: subtotal + 500 + Math.floor(subtotal / 10),
-        date,
-      })
-    );
-    navigate("/orders");
-    toast.success("New order placed succesfully");
+    if (address && name) {
+      const date = new Date().toLocaleString();
+      console.log(date);
+      dispatch(
+        setCheckout({
+          name,
+          address,
+          cost: subtotal + 500 + Math.floor(subtotal / 10),
+          date,
+        })
+      );
+      navigate("/orders");
+      toast.success("New order placed succesfully");
+    }
   };
   return (
     <div>

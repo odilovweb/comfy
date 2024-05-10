@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 function Orders() {
   const { user, orders } = useSelector((state) => state.comfy);
   // const navigate = useNavigate();

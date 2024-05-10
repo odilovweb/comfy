@@ -1,11 +1,17 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 function About() {
   return (
     <div className="py-10">
       <h1 className="w-full text-center text-3xl font-extrabold">
         We Love{" "}
-        <span className="btn btn-primary text-3xl items-center mb-10">
+        <span
+          onClick={() => {
+            toast.success("You clicked me 😜");
+          }}
+          className="btn btn-primary text-3xl items-center mb-10"
+        >
           Comfy
         </span>
       </h1>

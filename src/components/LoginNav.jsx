@@ -7,6 +7,9 @@ function LoginNav() {
 
   return (
     <div className="align-element flex justify-center sm:justify-end">
+      <a href="https://t.me/m_odlov" className="mr-auto hover:text-green-500">
+        Developed By Odilov
+      </a>
       {user ? (
         <Link to="/login" className="flex gap-2">
           <span>{user.displayName}</span>

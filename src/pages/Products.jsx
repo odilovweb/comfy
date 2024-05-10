@@ -13,7 +13,6 @@ function Products() {
       .get(api)
       .then((responce) => {
         setFedata(responce.data.data);
-        console.log(responce);
         setPending(false);
       })
       .catch((err) => {
@@ -21,21 +20,14 @@ function Products() {
         setPending(false);
       });
   }, [api]);
-  const navigate = useNavigate();
+
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [company, setCompany] = useState("all");
   const [sort, setSort] = useState("a-z");
-  const [price, setPrice] = useState("100000");
+  const [price, setPrice] = useState(100000);
   const [shipping, setShipping] = useState(false);
-  // useEffect(() => {
-  //   setSearch("");
-  //   setCategory("all");
-  //   setCompany("all");
-  //   setSort("a-z");
-  //   setPrice("1000.00");
-  //   setShipping(false);
-  // }, []);
+
   return (
     <div>
       {pending ? (
@@ -131,7 +123,7 @@ function Products() {
                   className="cursor-pointer flex items-center justify-between"
                 >
                   <span className="label-text capitalize">Select price</span>
-                  <span className="">${price}</span>
+                  <span className="">${price / 100}</span>
                 </label>
                 <input
                   type="range"
@@ -153,18 +145,34 @@ function Products() {
                 <label htmlFor="shipping" className="label cursor-pointer">
                   <span className="label-text">Free Shipping</span>
                 </label>
-                <input
-                  type="checkbox"
-                  name="shipping"
-                  onChange={() => {
-                    if (shipping) {
-                      setShipping(false);
-                    } else {
-                      setShipping(true);
-                    }
-                  }}
-                  className="checkbox checkbox-primary checkbox-sm"
-                />
+                {shipping ? (
+                  <input
+                    type="checkbox"
+                    name="shipping"
+                    checked
+                    onChange={() => {
+                      if (shipping) {
+                        setShipping(false);
+                      } else {
+                        setShipping(true);
+                      }
+                    }}
+                    className="checkbox checkbox-primary checkbox-sm"
+                  />
+                ) : (
+                  <input
+                    type="checkbox"
+                    name="shipping"
+                    onChange={() => {
+                      if (shipping) {
+                        setShipping(false);
+                      } else {
+                        setShipping(true);
+                      }
+                    }}
+                    className="checkbox checkbox-primary checkbox-sm"
+                  />
+                )}
               </div>
               <button
                 onClick={(e) => {
@@ -180,7 +188,12 @@ function Products() {
               </button>
               <button
                 onClick={() => {
-                  navigate("/products");
+                  setShipping(false);
+                  setPrice(10000);
+                  setSearch("");
+                  setCategory("all");
+                  setCompany("all");
+                  setSort("a-z");
                 }}
                 className="btn btn-sm btn-secondary"
               >

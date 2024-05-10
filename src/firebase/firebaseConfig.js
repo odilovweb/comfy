@@ -5,6 +5,7 @@ import {
   getAuth,
   signInWithPopup,
   signOut,
+  signInWithPhoneNumber,
 } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyACk05pcKdE1pyOy0cJdJrEwpW_jPBCCjw",
