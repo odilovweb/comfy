@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Products() {
   let apis = "https://strapi-store-server.onrender.com/api/products";
@@ -194,6 +194,9 @@ function Products() {
                   setCategory("all");
                   setCompany("all");
                   setSort("a-z");
+                  // setApi(
+                  //   "https://strapi-store-server.onrender.com/api/products"
+                  // );
                 }}
                 className="btn btn-sm btn-secondary"
               >
