@@ -187,16 +187,17 @@ function Products() {
                 Search
               </button>
               <button
-                onClick={() => {
-                  setShipping(false);
-                  setPrice(10000);
+                onClick={(e) => {
+                  e.preventDefault();
                   setSearch("");
                   setCategory("all");
                   setCompany("all");
                   setSort("a-z");
-                  // setApi(
-                  //   "https://strapi-store-server.onrender.com/api/products"
-                  // );
+                  setPrice(100000);
+                  setShipping(false);
+                  setApi(
+                    "https://strapi-store-server.onrender.com/api/products"
+                  );
                 }}
                 className="btn btn-sm btn-secondary"
               >
